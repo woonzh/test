@@ -9,7 +9,7 @@ from flask import Flask, request, make_response, render_template, redirect
 from flask_cors import CORS
 from flask_restful import Resource, Api
 #
-app = Flask(__name__)
+#app = Flask(__name__)
 #api = Api(app)
 #CORS(app)
 
@@ -39,18 +39,21 @@ instructions = '''
 home_link = '<p><a href="/">Back</a></p>\n'
 footer_text = '</body>\n</html>'
 
+# EB looks for an 'application' callable by default.
+application = Flask(__name__)
+
 # add a rule for the index page.
-app.add_url_rule('/', 'index', (lambda: header_text +
+application.add_url_rule('/', 'index', (lambda: header_text +
     say_hello() + instructions + footer_text))
 
 # add a rule when the page is accessed with a name appended to the site
 # URL.
-app.add_url_rule('/<username>', 'hello', (lambda username:
+application.add_url_rule('/<username>', 'hello', (lambda username:
     header_text + say_hello(username) + home_link + footer_text))
 
 # run the app.
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
-    app.debug = True
-    app.run()
+    application.debug = True
+    application.run()
