@@ -21,6 +21,21 @@ def hello():
 def main():
     return render_template('index.html')
 
+@application.route('/cpfinder')
+def main():
+    return render_template('cpfinder.html')
+
+@application.route('/urbanfox')
+def main():
+    return render_template('urbanfox.html')
+
+@application.route('/keppel')
+def main():
+    return render_template('keppel.html')
+
+@application.route('/test')
+def main():
+    return render_template('test.html')
 
 # run the app.
 if __name__ == "__main__":
