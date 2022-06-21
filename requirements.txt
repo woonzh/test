@@ -1,7 +1,7 @@
 APScheduler==3.4.0
 
 pandas==0.21.0
-numpy==1.12.1
+numpy==1.22.0
 numpydoc==0.6.0
 requests==2.18.4
 simplejson==3.13.2
